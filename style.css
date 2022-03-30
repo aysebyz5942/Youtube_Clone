@@ -1,0 +1,237 @@
+/* bu url google ın kullandıgı fontu alır*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*But we don't want that – we want everything to be 100px. Width should still be 100px including the margin of 10px instead of making it 110px. That is what box-sizing: border-box does.*/
+body {
+  font-family: 'Roboto', sans-serif;
+}
+/* Roboto ailesini kullanacağımız için,  Roboto, google ın kullandığı arayüzler*/
+/* header section*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 15px;
+}
+/*Justify-content: space-between means we want the contents in the header to have space between them once there are more than one.
+Align-items: centre is used to move all the contents of the header to the centre-left of your screen. 
+That is called vertical alignment. We finally set the height of the header to 60px and its padding to 15px.*/
+
+main {
+  height: calc(100vh - 70px);
+  display: flex;
+  background-color: #f9f9f9;
+}
+
+/*We set the height of the main section to calc( 100vh - 70px)...What does it mean? V stands for a viewport, which is the visible part of a window’s screen without scrolling. “height” means vertical length, and we can also use “w” which means width - horizontal length.
+In short, 100vh means the total height that is visible in a browser without scrolling. And we use calc ( 100vh - 70px) to run a calculation that subtract 70px from 100vh.
+We set its display property to flex to create a layout out of it. Finally, we set its background colour to #f9f99f which is a kind of silver or ash.*/
+
+/* Sidebar */ 
+.side-bar {
+  height: 100%;
+  width: 17%;
+  background-color: white;
+  overflow-y: hidden;
+} 
+/*The height of the .side-bar is set to 100% of its parent. That means it will have the same height as its parent. Its width is set to 17% of its parent and background colour set to white.
+Hey! What is overflow-y: hidden? When Twitter loads 10 tweets at once, you can’t see everything at once and you have to scroll, right? In this case, we hide the scroll bar. Gracias!*/
+
+@media (max-width: 768px) {
+  .side-bar {
+    display: none;
+  }
+}
+/*We use this media query to make a website responsive on mobile, tablets, and desktop. When the YouTube clone is on a device whose screen is less than or equal to 768px (like mobile & tablet), the sidebar will disappear.
+ Also, max-width: 768px means that a device’s screen can be less or equal to 768px.*/
+
+.left {
+  display: flex;
+  align-items: center;
+}
+ 
+.left #menu {
+  padding: 0 7px;
+  cursor: pointer;
+}
+
+ /*We set its padding top and bottom to 0 and its padding left and right to 7px. Its cursor property is set to the pointer so that when the mouse is on it, it will show a pointing finger.*/
+
+.search {
+  display: flex;
+}
+ 
+.search form {
+  display: flex;
+  border: 1px solid #ddd;
+  height: 45px;
+}
+ /*Its border thickness is set to 1px, type to solid, and color to #ddd (something silver or ash).*/
+
+.search input {
+  width: 600px;
+  padding:10px;
+  border: 0;
+  height: 100%;
+  border-radius: 2px 0 0 2px
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #ddd;
+}
+/*We select the input which is inside the seach section with .search input. We set its border-radius to 2px top, 0 right, 0 bottom, and 2px left.
+ Then, what is border-radius? It is the curved edges of an object with four angles.*/
+
+.search button {
+  height: 100%;
+  width: 60px;
+  border: none;
+}
+ 
+.mic {
+  margin-top: 10px;
+}
+/*The button inside the search section is also selected with the .search button. Its height is set to 100% of its parent. We don’t want it to have any border so we set its border to 0.
+
+We access the microphone icon with its class name .mic and set its margin-top to 10px so that it will move down a bit.*/
+
+.material-icons {
+  color: rgb(100, 100, 100);
+  padding: 0 7px;
+  cursor: pointer;
+}
+/*Finally, let's style all the material-icons we have on the web page*/
+
+.nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+/*The only thing I will explain here is flex-direction. This determines whether we want the children to appear in a column (vertical) or row (horizontal).*/
+/*In this case we go with a horizontal display.*/
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 25px;
+}
+
+.nav-link span {
+  margin-left: 15px;
+}
+
+.nav-link:hover {
+  background: #e5e5e5;
+  cursor: pointer;
+}
+
+.active {
+  background: #e5e5e5;
+}
+/*Okay, let’s talk about .home:hover. The styles in it will only be applied whenever we move our cursor over the home navigation link. That is it.*/
+
+hr {
+  height: 1px;
+  background-color: #e5e5e5;
+  border: none;
+}
+/*Video bölümü*/
+.content {
+  background-color: #f9f9f9;
+  width: 100%;
+  height: 100%;
+  padding: 15px 15px;
+  border-top: 1px solid #ddd;
+  overflow-y: scroll;
+}
+
+.videos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+/*When the screen can only take four items, for example, other items will be moved to another row. That is what “flex-wrap” does.*/
+
+.video {
+  width: 270px;
+  margin-bottom: 30px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 170px;
+}
+
+.thumbnail img {
+  object-fit: cover;
+  height: 94%;
+  width: 100%;
+}
+/*object-fit in this case is used to clip the image to its container so as to remove overflow (areas where the image is bigger than its container) in height and width*/
+
+.author img {
+  object-fit: cover;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.details {
+  display: flex;
+}
+ 
+.title {
+  display: flex;
+  flex-direction: column;
+}
+ 
+.title h3 {
+  color: rgb(3, 3, 3);
+  line-height: 18px;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+/*line-height is used to set the height of a line of text and in this case, we set it to 18px.*/
+ 
+.title a,
+span {
+  text-decoration: none;
+  color: rgb(96, 96, 96);
+  font-size: 12px;
+}
+/*Finally we use .title a, span to select the anchor tag in .title. We also select all span tags on the page and set their text-decoration to none.*/
+
+@media (max-width: 768px) {
+  .side-bar {
+    display: none;
+  }
+  .search {
+    display: none;
+  }
+}
+
+/*@media (max-width: 768px) { } is used to set the device screen sizes that the code in the media query will apply to.
+
+In this example, max-width: 768px means that the styles in the media query will be applied to any screen size that is equal to or less than 768px.
+
+So, whenever the screen size in use is 768px or less, we will hide the sidebar and the search input by setting their display property to none.*/
+
+@media (max-width: 900px) {
+  .search input {
+    width: 25rem;
+  }
+}
+/*Finally, we make the the search input a bit smaller whenever the screen size of the device in use is less or equal to 900px.*/
